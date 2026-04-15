@@ -1,0 +1,184 @@
+:root {
+    --main-orange: #e65100;
+    --dark-bg: #0c0c0c;
+    --header-bg: rgba(26, 26, 26, 0.95);
+    --card-bg: rgba(22, 22, 22, 0.85);
+    --text-white: #ffffff;
+    --text-gray: #bbb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.menu-page {
+    font-family: 'Cairo', sans-serif;
+    /* تم تعديل المسار هنا ليكون داخل مجلد img */
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                url('backgrawnd.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-white);
+    padding-top: 100px;
+}
+
+.main-header {
+    background-color: var(--header-bg);
+    width: 100%;
+    position: fixed; 
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #222;
+    height: 80px;
+    backdrop-filter: blur(10px);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+}
+
+.logo img { height: 45px; width: auto; border-radius: 5px; }
+.logo-text { color: white; font-weight: 900; font-size: 1.1rem; }
+
+.nav-links ul { list-style: none; display: flex; gap: 20px; }
+.nav-links a { text-decoration: none; color: white; font-weight: 700; transition: 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--main-orange); }
+
+.menu-container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.main-title {
+    text-align: center;
+    color: var(--main-orange);
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.section-title {
+    color: var(--main-orange);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+    margin: 50px 0 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.5rem;
+}
+
+.standard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.item-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-right: 5px solid var(--main-orange);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    background: rgba(30, 30, 30, 0.9);
+    box-shadow: 0 10px 20px rgba(230, 81, 0, 0.2);
+}
+
+.item-img {
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 15px;
+    border: 2px solid rgba(230, 81, 0, 0.3);
+}
+
+.item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-info { flex-grow: 1; }
+.item-info h3 { font-size: 1.2rem; margin-bottom: 5px; }
+.item-desc { font-size: 0.85rem; color: var(--text-gray); }
+
+.item-prices-v2 {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 60px;
+}
+
+.p-tag {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: var(--main-orange);
+    font-weight: 800;
+    border: 1px solid rgba(230, 81, 0, 0.4);
+    text-align: center;
+}
+
+.p-tag span { color: #888; font-size: 0.75rem; margin-left: 4px; }
+
+.special-highlight {
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.9), rgba(50, 25, 10, 0.9));
+    border-right-color: #ff9800;
+}
+
+.extras-box {
+    background: var(--main-orange);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 60px 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(230, 81, 0, 0.4);
+}
+
+.simple-footer { 
+    text-align: center; 
+    padding: 50px 20px; 
+    color: #888; 
+    font-size: 0.9rem;
+    background: rgba(0,0,0,0.5);
+}
+
+@media (max-width: 768px) {
+    .standard-grid { grid-template-columns: 1fr; }
+    .main-title { font-size: 1.8rem; }
+}

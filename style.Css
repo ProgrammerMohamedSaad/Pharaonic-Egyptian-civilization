@@ -1,0 +1,218 @@
+/* --- 1. إعدادات أساسية --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #0c0c0c;
+    padding-top: 80px; 
+}
+
+/* --- 2. الهيدر (Main Header) --- */
+.main-header {
+    background-color: #1a1a1a;
+    width: 100%;
+    position: fixed; 
+    top: 0;
+    z-index: 1000;
+    padding: 12px 0;
+    border-bottom: 1px solid #333;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.container {
+    width: 95%; 
+    max-width: 1400px; 
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+/* --- 3. اللوجو والاسم --- */
+.logo a {
+    display: flex;
+    align-items: center; 
+    text-decoration: none; 
+    gap: 12px;
+}
+
+.logo img {
+    height: 45px;
+    width: auto;
+}
+
+.logo-text {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* --- 4. الروابط (Navigation) --- */
+.nav-links {
+    flex-grow: 1; 
+    display: flex;
+    justify-content: center; 
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5vw; 
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap; 
+    transition: 0.3s ease-in-out; 
+    padding: 5px 10px;
+}
+
+.nav-links a:hover {
+    color: #e65100; 
+}
+
+/* تثبيت اللون عند الضغط */
+#home:target ~ .main-header .nav-links a[href="#home"],
+#menu:target ~ .main-header .nav-links a[href="#menu"],
+#our-story:target ~ .main-header .nav-links a[href="#our-story"],
+#specials:target ~ .main-header .nav-links a[href="#specials"],
+#contact:target ~ .main-header .nav-links a[href="#contact"] {
+    color: #e65100;
+}
+
+/* --- 5. قسم الـ Hero الاحترافي --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url('backgrawnd.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 800px;
+}
+
+.hero-logo {
+    width: 250px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn-browse {
+    background-color: #e65100;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-browse:hover { transform: scale(1.05); background-color: #ff5722; }
+
+/* --- 6. الفوتر (الرقم والإنستجرام) --- */
+.hero-footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.phone-box {
+    background-color: #e65100;
+    color: white;
+    padding: 8px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.insta-box {
+    background-color: #e65100;
+    color: white;
+    width: 40px; height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* --- 7. التعامل مع الشاشات (Responsive) --- */
+
+/* تابلت وشاشات متوسطة */
+@media (max-width: 992px) {
+    .logo-text { display: none; } /* نخفي النص عشان المنيو تاخد راحتها */
+}
+
+/* موبايل */
+@media (max-width: 768px) {
+    .container { flex-wrap: wrap; }
+    
+    .nav-links {
+        order: 3;
+        width: 100%;
+        margin-top: 15px;
+        overflow-x: auto;
+    }
+    
+    .nav-links ul { gap: 10px; justify-content: flex-start; padding-bottom: 5px; }
+    
+    .nav-links a {
+        font-size: 12px;
+        background: rgba(255,255,255,0.1);
+        padding: 6px 12px;
+        border-radius: 20px;
+    }
+
+    /* تصغير محتوى الـ Hero للموبايل عشان ميتداخلش */
+    .hero-logo { width: 160px; }
+    .hero-content h2 { font-size: 1.6rem; }
+    .hero-content p { font-size: 0.9rem; }
+    .btn-browse { padding: 10px 20px; font-size: 14px; }
+    .phone-box { padding: 6px 15px; font-size: 14px; }
+}
